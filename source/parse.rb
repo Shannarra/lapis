@@ -33,6 +33,7 @@ class Parser
         lhs = children.first.eval!
         rhs = children.last.eval!
 
+        puts IR::Generator.arithmetic_operation(token, lhs, rhs)
         exec_operator(token.value, [lhs, rhs])
       end
     end
