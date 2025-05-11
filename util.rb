@@ -10,12 +10,29 @@ module Kernel
     end
   end
 
-  def wputs(text)
-    puts "[WARN]: #{text}"
+  def todo!
+    call = caller(1, 1).first
+
+    eputs "Not implemented yet #{call}"
   end
 
-  def eputs(text)
-    puts "[ERROR]: #{text}"
+  def wputs(text, position = [])
+    print_with_position('WARN', text, position)
+  end
+
+  def eputs(text, position = [])
+    print_with_position('ERROR', text, position)
     exit(1)
+  end
+
+  private
+
+  def print_with_position(type, text, position = [])
+    at = " at #{position.first}:#{position.last}"
+    msg = "[#{type}]: #{text}"
+
+    msg += at unless position.empty?
+
+    puts msg
   end
 end

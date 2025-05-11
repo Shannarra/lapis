@@ -58,6 +58,7 @@ class Token
     when '(' then self.type = TokenType::OpenParenthesis
     when ')' then self.type = TokenType::CloseParenthesis
     when ',' then self.type = TokenType::Comma
+    when '=' then self.type = TokenType::Equals
     else
       eputs "Unexpected operator found #{self}"
     end
@@ -80,4 +81,5 @@ TokenType = enum %w[
   Operator
   Keyword
   Comma
+  Equals
 ]

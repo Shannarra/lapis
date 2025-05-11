@@ -3,7 +3,7 @@ require_relative 'token'
 class Lexer
   attr_reader :errors, :ip, :col, :row, :text
 
-  OPERATORS = %w[( ) + - / * ,].freeze
+  OPERATORS = %w[( ) + - / * , =].freeze
 
   WHITESPACE = [' ', "\n", "\t"].freeze
 
